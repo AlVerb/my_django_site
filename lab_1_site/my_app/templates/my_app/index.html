@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Главная страница</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'my_app/css/style.css' %}"  type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+      <header>
+        <ul id="menu">
+          <li><a href="">Контакты</a></li>
+          <li><a href="post/new">Создать заметку</a></li>
+        </ul>
+      </header>
+      <div class="container">
+          {% if notes.count > 0 %}
+            {% for note in notes %}
+              <div class="block_note">
+                <a href="" class="title_note" onclick='openBox( "{{ note.title }}" ,  `{{ note.text }}`, "{{ note.created_date }}");  return false'>{{ note.title }}</a>
+                <p class="desc_note">{{ note.desc }}</p>
+                <p class="date_note">{{ note.created_date }}</p>
+              </div>
+            {% endfor %}
+          {% endif %}
+      </div>
+      <div id="note" style="display: none;">
+        <div class="window">
+          <div class="content">
+            <div class="full_title_note"></div>
+            <div class="full_text_note"></div>
+            <p class="full_date_note"></p>
+          </div>
+          <div class="dashboard">
+            <ul id="panel">
+              <li><a href="" id="first" onclick="closeBox()"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
+              <li><a href="" id="second"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></li>
+              <li><a href="" id="third"><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript" src="{% static 'my_app/js/jquery-3.3.1.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'my_app/js/scripts.js' %}"></script>
+  </body>
+</html>
