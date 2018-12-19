@@ -25,7 +25,7 @@ SECRET_KEY = 'zg^0^9+3t#*sg2qfpwwx5g$a!vpqs$s$9afuqm_gm*e7-ac7+c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alverb.pythonanywhere.com',]
 
 
 # Application definition
